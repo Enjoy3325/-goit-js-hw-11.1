@@ -1,19 +1,14 @@
 import SimpleLightbox from 'simplelightbox';
 import 'simplelightbox/dist/simple-lightbox.min.css';
-
+import { galleryImage } from './render.js';
 import Notiflix from 'notiflix';
-
+import { refs } from './refs.js';
 import NewsApiService from './new-service';
 import './css/styles.css';
 let lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-const refs = {
-  searchForm: document.querySelector('.search-form'),
-  divGallery: document.querySelector('.gallery'),
-  buttonLoadMore: document.querySelector('.load-more'),
-};
 // Делаю экземпляр класса чтобы получить объект с методами и свойствами
 const newsApiService = new NewsApiService();
 console.log(refs.searchForm);
@@ -86,38 +81,7 @@ function clearCards() {
   refs.divGallery.innerHTML = '';
 }
 // Функция разметки, рендеринг
-function galleryImage(search) {
-  const gallaryImageResult = search.map(
-    ({
-      largeImageURL,
-      webformatURL,
-      tags,
-      likes,
-      views,
-      comments,
-      downloads,
-    }) => {
-      return ` <a class="list" href=${largeImageURL}><div class="photo-card">
-   <img src=" ${webformatURL}" alt="${tags}" loading="lazy" />
-   <div class="info">
-     <p class="info-item">
-       <b>Likes ${likes}</b>
-     </p>
-     <p class="info-item">
-       <b>Views ${views}</b>
-     </p>
-     <p class="info-item">
-       <b>Comments ${comments}</b>
-     </p>
-     <p class="info-item">
-       <b>Downloads  ${downloads}</b>
-     </p>
-   </div>
- </div></a>`;
-    }
-  );
-  refs.divGallery.insertAdjacentHTML('beforeend', gallaryImageResult.join(''));
-}
+
 // Скролл
 function onScroll() {
   const { height: cardHeight } = document

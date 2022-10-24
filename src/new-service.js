@@ -8,7 +8,6 @@ export default class NewsApiService {
   }
 
   fetchHits() {
-    console.log(this);
     const API_KEY = '29387302-2c01c74d3eaaf5cdbdb3e9280';
     const options = `image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.per_page}`;
     const url = `https://pixabay.com/api/?key=${API_KEY}&q=${this.searchQuery}&${options}&page=${this.page}`;
