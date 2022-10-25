@@ -9,13 +9,12 @@ let lightbox = new SimpleLightbox('.gallery a', {
   captionDelay: 250,
 });
 
-// Делаю экземпляр класса чтобы получить объект с методами и свойствами
 const newsApiService = new NewsApiService();
-console.log(refs.searchForm);
+// Listeners
 refs.searchForm.addEventListener('submit', onSearch);
 refs.buttonLoadMore.addEventListener('click', onLoadMoreClick);
 
-// функция сабмита поисковая строка
+// Sabmit function search bar
 async function onSearch(e) {
   e.preventDefault();
   clearCards();
@@ -26,10 +25,11 @@ async function onSearch(e) {
   if (newsApiService.query === '') {
     return Notiflix.Notify.info('Enter in the field what you want to find!');
   }
+  // onClickDiseabledBtnSubmit();
   newsApiService.resetPage();
-  // пошёл HTTP запрос
+  // HTTP request was sent
   try {
-    // Вызов картинок
+    // Calling up pictures
     const resultFetch = await newsApiService.fetchHits();
 
     if (resultFetch.data.hits.length === 0) {
@@ -55,7 +55,7 @@ async function onSearch(e) {
   } catch (error) {}
 }
 
-// Функция кнопка показать больше картинок
+// Button "Load more" function to show more pictures
 async function onLoadMoreClick() {
   newsApiService.incrementPage();
   try {
@@ -71,18 +71,16 @@ async function onLoadMoreClick() {
     }
 
     galleryImage(resultClik.data.hits);
-    // Галерея lightbox
+    // Gallery lightbox
     lightbox.refresh();
     onScroll();
   } catch (error) {}
 }
-
+// Clear input field, markup
 function clearCards() {
   refs.divGallery.innerHTML = '';
 }
-// Функция разметки, рендеринг
-
-// Скролл
+// Scrolling the page
 function onScroll() {
   const { height: cardHeight } = document
     .querySelector('.gallery')

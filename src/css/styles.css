@@ -14,15 +14,20 @@
   box-shadow: 0px 3px 8px 0px rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   cursor: pointer;
-  transition: 700ms;
-
+  transition: 700ms ease-in-out;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  -webkit-transition: 0.7s;
   margin-bottom: 0;
 }
 .photo-card:hover {
   transition: 700ms;
   transform: scale(1.2);
   overflow: hidden;
+  -webkit-filter: grayscale(0);
+  filter: grayscale(0);
 }
+
 .search-form {
   z-index: 2;
   opacity: 0.8;
@@ -53,6 +58,9 @@ input {
     rgba(180, 140, 40, 1) 40%
   );
 }
+input[placeholder] {
+  color: aliceblue;
+}
 .btn-submit {
   width: 100px;
   height: 25px;
@@ -66,6 +74,7 @@ input {
     rgba(0, 212, 255, 1) 67%,
     rgba(39, 184, 16, 1) 82%
   );
+  transition: 0.3s;
   color: yellow;
   cursor: pointer;
   border-radius: 10px;
@@ -80,6 +89,7 @@ input {
   );
   color: #080101;
   color: aliceblue;
+  transition: 0.3s;
 }
 .info {
   display: flex;
@@ -128,6 +138,7 @@ img {
   );
   color: yellow;
   cursor: pointer;
+  transition: 0.3s;
 }
 .is-hidden {
   display: none;
@@ -143,6 +154,7 @@ img {
     rgba(153, 0, 255, 1) 79%
   );
   color: #080101;
+  transition: 0.3s;
 }
 .list {
   text-decoration: none;
