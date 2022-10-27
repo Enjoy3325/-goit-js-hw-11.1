@@ -25,7 +25,6 @@ async function onSearch(e) {
   if (newsApiService.query === '') {
     return Notiflix.Notify.info('Enter in the field what you want to find!');
   }
-  // onClickDiseabledBtnSubmit();
   newsApiService.resetPage();
   // HTTP request was sent
   try {

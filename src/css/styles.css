@@ -15,17 +15,20 @@
   border-radius: 10px;
   cursor: pointer;
   transition: 700ms ease-in-out;
+
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
-  -webkit-transition: 0.7s;
+  /* filter: drop-shadow(16px 16px 20px blue); */
   margin-bottom: 0;
 }
 .photo-card:hover {
   transition: 700ms;
   transform: scale(1.2);
   overflow: hidden;
+  outline: none;
   -webkit-filter: grayscale(0);
   filter: grayscale(0);
+  /* filter: drop-shadow(0); */
 }
 
 .search-form {
@@ -93,10 +96,9 @@ input[placeholder] {
 }
 .info {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
+  margin: 20px, 0, 20px, 0;
   padding: 15px;
+  font-size: 20px;
 }
 .info-item {
   display: flex;
@@ -104,16 +106,16 @@ input[placeholder] {
   text-align: center;
 }
 p {
-  display: flex;
+  display: block;
   flex-wrap: wrap;
 }
 b {
-  margin-right: 10px;
+  display: block;
+  margin-right: 15px;
 }
 b:last-child {
-  margin-right: 0px;
+  margin-right: 0;
 }
-
 img {
   display: block;
   width: 100%;
@@ -143,8 +145,7 @@ img {
 .is-hidden {
   display: none;
 }
-.load-more:hover,
-.load-more:focus {
+.load-more:hover {
   background: rgb(219, 102, 6);
   background: linear-gradient(
     0deg,
